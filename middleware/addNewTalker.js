@@ -12,7 +12,7 @@ const addNewTalker = async (req, res) => {
     talk,
   };
   talkerFile.push(newTalker);
-  fs.writeFile(JSON.stringify(talkerFile));
+  fs.writeFile('./talker.json', JSON.stringify(talkerFile));
 
   return res.status(201).json(newTalker);
 };
