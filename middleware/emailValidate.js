@@ -1,0 +1,16 @@
+const emailValidate = (req, res) => {
+  const { email } = req.body;
+  const regexEmail = /\S+@\S+\.\S+/; // retirado do sire horadecodar.com.br
+ 
+  if (!email) {
+    return res.status(400).json({ message: 'O campo "email" é obrigatório' });
+  }
+
+  if (!regexEmail) {
+    return res.status(400).json({
+      message: 'O "email" deve ter o formato "email@email.com"',
+    });
+  }
+};
+
+module.exports = emailValidate;
