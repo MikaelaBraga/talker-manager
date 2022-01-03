@@ -1,4 +1,4 @@
-const passwordValidate = (req, res) => {
+const passwordValidate = (req, res, next) => {
   const { password } = req.body;
 
   if (!password) {
@@ -12,6 +12,7 @@ const passwordValidate = (req, res) => {
       message: 'O "password" deve ter pelo menos 6 caracteres',
     });
   }
+  next();
 };
 
 module.exports = passwordValidate;
