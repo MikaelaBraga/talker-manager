@@ -41,7 +41,7 @@ const ageAuthorization = (req, res, next) => {
     });
   }
 
-  if (age < 18) {
+  if (parseInt(age, 10) < 18) {
     return res.status(400).json({
       message: 'A pessoa palestrante deve ser maior de idade',
     });
