@@ -19,29 +19,29 @@ const {
   ageAuthorization,
   talkAuthorization,
   watchedAndRateAuthorization } = require('./middleware/postTalkerAuthorization');
-
-// requisito 1
-app.get('/talker', getTalker);
-
-// requisito 2
-app.get('/talker/:id', getTalkerID);
-
-// requisito 3
-app.post('/login', postLoginToken, emailValidate, passwordValidate);
-
-// requisito 4
-app.post('/talker',
-  addNewTalker,
+  
+  // não remova esse endpoint, e para o avaliador funcionar
+  app.get('/', (_request, response) => {
+    response.status(HTTP_OK_STATUS).send();
+  });
+  
+  // requisito 1
+  app.get('/talker', getTalker);
+  
+  // requisito 2
+  app.get('/talker/:id', getTalkerID);
+  
+  // requisito 3
+  app.post('/login', postLoginToken, emailValidate, passwordValidate);
+  
+  // requisito 4
+  app.post('/talker',
   tolkenAuthorization,
   nameAuthorization,
   ageAuthorization,
   talkAuthorization,
-  watchedAndRateAuthorization);
-
-// não remova esse endpoint, e para o avaliador funcionar
-app.get('/', (_request, response) => {
-  response.status(HTTP_OK_STATUS).send();
-});
+  watchedAndRateAuthorization,
+  addNewTalker);
 
 app.listen(PORT, () => {
   console.log('Online');
