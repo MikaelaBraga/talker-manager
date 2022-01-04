@@ -14,6 +14,7 @@ const {
   talkAuthorization,
   watchedAuthorization,
   rateAuthorization } = require('./middleware/postTalkerAuthorization');
+const editTalkerId = require('./middleware/putTalkerId');
 
 const app = express();
 app.use(bodyParser.json());
@@ -44,6 +45,16 @@ const PORT = '3000';
   watchedAuthorization,
   rateAuthorization,
   addNewTalker);
+
+  // requisito 5
+  app.put('/talker/:id',
+  tolkenAuthorization,
+  nameAuthorization,
+  ageAuthorization,
+  talkAuthorization,
+  watchedAuthorization,
+  rateAuthorization,
+  editTalkerId);
 
 app.listen(PORT, () => {
   console.log('Online');
