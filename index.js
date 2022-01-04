@@ -12,7 +12,8 @@ const {
   nameAuthorization,
   ageAuthorization,
   talkAuthorization,
-  watchedAndRateAuthorization } = require('./middleware/postTalkerAuthorization');
+  watchedAuthorization,
+  rateAuthorization } = require('./middleware/postTalkerAuthorization');
 
 const app = express();
 app.use(bodyParser.json());
@@ -40,7 +41,8 @@ const PORT = '3000';
   nameAuthorization,
   ageAuthorization,
   talkAuthorization,
-  watchedAndRateAuthorization,
+  watchedAuthorization,
+  rateAuthorization,
   addNewTalker);
 
 app.listen(PORT, () => {
