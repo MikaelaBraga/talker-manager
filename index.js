@@ -15,6 +15,7 @@ const {
   watchedAuthorization,
   rateAuthorization } = require('./middleware/postTalkerAuthorization');
 const editTalkerId = require('./middleware/putTalkerId');
+const deleteTalkerId = require('./middleware/deleteTalkerId');
 
 const app = express();
 app.use(bodyParser.json());
@@ -55,6 +56,9 @@ const PORT = '3000';
   watchedAuthorization,
   rateAuthorization,
   editTalkerId);
+
+  // requisito 6
+  app.delete('/talker/:id', tolkenAuthorization, deleteTalkerId);
 
 app.listen(PORT, () => {
   console.log('Online');
